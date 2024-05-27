@@ -7,3 +7,22 @@ principles were introduced by Robert C. Martin and are commonly used in object-o
 
 **Single Responsibility Principle (SRP)**: This principle states that a class should have only one reason to change. In other words, a class should have only one responsibility or job. This promotes modular and maintainable code.
 A class should have only one responsibility. This means that each class should only do one thing and do it well.
+
+So, what does that mean actually? While you design your logic in either class or method, _**you should not be writing all kinds of responsibilities in one place**_. This will make your code quite complex and unmanageable. It will also be difficult to adjust new changes later as there are high chances it will affect the other functionality and you will end up testing all the functionalities even though it is a smaller change.
+
+# Single Responsibility Principle (SRP)
+class FileManager:
+    def __init__(self, file_path):
+        self.file_path = file_path
+
+    def read_file(self):
+        pass
+
+    def write_file(self, data):
+        pass
+
+    def encrypt_data(self, data):
+        pass
+
+    def decrypt_data(self, data):
+        pass
