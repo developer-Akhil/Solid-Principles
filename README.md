@@ -12,7 +12,7 @@ So, what does that mean actually? While you design your logic in either class or
 
 # Single Responsibility Principle (SRP)
 
-class FileManager:
+```class FileManager:
     def __init__(self, file_path):
         self.file_path = file_path
 
@@ -26,12 +26,12 @@ class FileManager:
         pass
 
     def decrypt_data(self, data):
-        pass
+        pass```
 
 In this example, the `FileManager` class violates SRP because it has multiple responsibilities. It is responsible for file management operations such as reading and writing files, as well as performing encryption and decryption of data.
 To apply SRP, we can separate the responsibilities into different classes:
 
-class FileManager
+```class FileManager
     def __init__(self, file_path):
         self.file_path = file_path
 
@@ -46,7 +46,7 @@ class DataEncryptor:
         pass
 
     def decrypt_data(self, data):
-        pass
+        pass```
 
 In this refactored version, the `FileManager` class now focuses solely on file management operations. It handles reading and writing data to/from a file. On the other hand, the `DataEncryptor` class is responsible for encrypting and decrypting data.
 
@@ -55,10 +55,9 @@ It means that we should be able to add new functionality to the code without hav
 
 ![image](https://github.com/developer-Akhil/Solid-Principles/assets/64408106/34543303-34c2-4f51-a50c-18f850bc3c94)
 
-class Person:
+```class Person:
     def __init__(self, name):
         self.name = name
-
     def __repr__(self):
         return f'Person(name={self.name})'
 
@@ -72,8 +71,30 @@ class PersonStorage:
 if __name__ == '__main__':
     person = Person('John Doe')
     storage = PersonStorage()
-    storage.save_to_database(person)
+    storage.save_to_database(person)```
     
 The open-closed principle example
 
 ![image](https://github.com/developer-Akhil/Solid-Principles/assets/64408106/a150062b-9e4e-4c29-abaf-ca66d0830637)
+
+```from abc import ABC, abstractmethod
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def __repr__(self):
+        return f'Person(name={self.name})'
+
+class PersonStorage(ABC):
+    @abstractmethod
+    def save(self, person):
+        pass
+
+class PersonDB(PersonStorage):
+    def save(self, person):
+        print(f'Save the {person} to database')
+
+class PersonJSON(PersonStorage):
+    def save(self, person):
+        print(f'Save the {person} to a JSON file')```
