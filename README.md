@@ -27,3 +27,23 @@ class FileManager:
 
     def decrypt_data(self, data):
         pass
+
+In this example, the `FileManager` class violates SRP because it has multiple responsibilities. It is responsible for file management operations such as reading and writing files, as well as performing encryption and decryption of data.
+To apply SRP, we can separate the responsibilities into different classes:
+
+class FileManager
+    def __init__(self, file_path):
+        self.file_path = file_path
+
+    def read_file(self):
+        pass
+
+    def write_file(self, data):
+        pass
+
+class DataEncryptor:
+    def encrypt_data(self, data):
+        pass
+
+    def decrypt_data(self, data):
+        pass
