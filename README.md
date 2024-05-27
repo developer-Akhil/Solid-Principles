@@ -26,7 +26,8 @@ So, what does that mean actually? While you design your logic in either class or
         pass
 
     def decrypt_data(self, data):
-        pass```
+        pass
+```
 
 In this example, the `FileManager` class violates SRP because it has multiple responsibilities. It is responsible for file management operations such as reading and writing files, as well as performing encryption and decryption of data.
 To apply SRP, we can separate the responsibilities into different classes:
@@ -46,7 +47,8 @@ class DataEncryptor:
         pass
 
     def decrypt_data(self, data):
-        pass```
+        pass
+```
 
 In this refactored version, the `FileManager` class now focuses solely on file management operations. It handles reading and writing data to/from a file. On the other hand, the `DataEncryptor` class is responsible for encrypting and decrypting data.
 
@@ -71,7 +73,8 @@ class PersonStorage:
 if __name__ == '__main__':
     person = Person('John Doe')
     storage = PersonStorage()
-    storage.save_to_database(person)```
+    storage.save_to_database(person)
+```
     
 The open-closed principle example
 
@@ -97,4 +100,5 @@ class PersonDB(PersonStorage):
 
 class PersonJSON(PersonStorage):
     def save(self, person):
-        print(f'Save the {person} to a JSON file')```
+        print(f'Save the {person} to a JSON file')
+```
