@@ -48,9 +48,32 @@ class DataEncryptor:
     def decrypt_data(self, data):
         pass
 
-In this refactored version, the `_FileManager_` class now focuses solely on file management operations. It handles reading and writing data to/from a file. On the other hand, the `_DataEncryptor_` class is responsible for encrypting and decrypting data.
+In this refactored version, the `FileManager` class now focuses solely on file management operations. It handles reading and writing data to/from a file. On the other hand, the `DataEncryptor` class is responsible for encrypting and decrypting data.
 
 **Open-Closed Principle (OCP)**: According to the OCP, software entities (classes, modules, functions, etc.) should be open for extension but closed for modification. You should be able to add new functionality without changing existing code.
 It means that we should be able to add new functionality to the code without having to modify existing classes. By including new features without the need to change existing code, we can reduce bugs.
+
 ![image](https://github.com/developer-Akhil/Solid-Principles/assets/64408106/34543303-34c2-4f51-a50c-18f850bc3c94)
 
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def __repr__(self):
+        return f'Person(name={self.name})'
+
+class PersonStorage:
+    def save_to_database(self, person):
+        print(f'Save the {person} to database')
+
+    def save_to_json(self, person):
+        print(f'Save the {person} to a JSON file')
+
+if __name__ == '__main__':
+    person = Person('John Doe')
+    storage = PersonStorage()
+    storage.save_to_database(person)
+    
+The open-closed principle example
+
+![image](https://github.com/developer-Akhil/Solid-Principles/assets/64408106/a150062b-9e4e-4c29-abaf-ca66d0830637)
